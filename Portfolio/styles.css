@@ -1,0 +1,98 @@
+/* ---------- Reset & Base ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --bg:#071726; --card:#12323a; --accent:#40e0d0; --muted:#9fb6b2; --glass: rgba(255,255,255,0.03);
+}
+body{
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,var(--bg) 0%, #071726 100%);
+  color:#eef7f6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* ---------- Layout helpers ---------- */
+.container{ max-width:1100px; margin:0 auto; padding:28px; }
+.section{ padding:56px 0; }
+
+/* ---------- Hero ---------- */
+.hero{
+  background: linear-gradient(135deg, rgba(64,224,208,0.06), rgba(0,102,255,0.03));
+  padding:48px 0 32px;
+  border-bottom-left-radius:48px;
+  border-bottom-right-radius:48px;
+}
+.hero-inner{ display:flex; align-items:center; gap:30px; justify-content:space-between; }
+.hero-left{ flex:1; }
+.hero h1{ font-size:2.2rem; letter-spacing:0.4px; margin-bottom:8px; color:var(--accent); }
+.subtitle{ color:var(--muted); margin-bottom:16px; max-width:60ch; }
+.cta .btn{ display:inline-block; margin-right:10px; padding:10px 16px; border-radius:28px; text-decoration:none; border:2px solid var(--accent); color:var(--accent); transition:all .22s; background:transparent; }
+.cta .btn:hover{ background:var(--accent); color:#052223; }
+.btn-ghost{ border-color:rgba(255,255,255,0.12); color:#fff; }
+
+/* avatar */
+.hero-right{ width:110px; display:flex; justify-content:flex-end; }
+.avatar{ width:96px; height:96px; border-radius:18px; background:linear-gradient(180deg,#0f3b35,#123a3b); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:2.4rem; color:var(--accent); box-shadow: 0 8px 24px rgba(0,0,0,0.45); }
+
+/* ---------- About ---------- */
+#about .lead{ color:var(--muted); max-width:80ch; margin:16px auto 0; text-align:center; }
+
+/* ---------- Experience cards ---------- */
+.experience-section{ background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent); }
+.experience-section h2{ text-align:center; color:var(--accent); margin-bottom:26px; font-size:2rem; }
+
+.exp-grid{ display:grid; gap:20px; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); align-items:start; }
+
+/* card style similar to project cards from ref */
+.exp-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:28px;
+  padding:20px;
+  box-shadow: 0 8px 22px rgba(2,8,10,0.45);
+  transition: transform .26s ease, box-shadow .26s ease;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.exp-card:hover{ transform: translateY(-10px); box-shadow: 0 18px 40px rgba(2,8,10,0.55); }
+
+/* header inside card */
+.exp-head{ display:flex; gap:14px; align-items:center; margin-bottom:12px; }
+.exp-logo{
+  width:62px; height:62px; border-radius:14px;
+  background: linear-gradient(180deg,var(--card), #0d2a2b);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--accent); font-weight:700; font-size:1.2rem;
+  box-shadow: inset 0 -6px 18px rgba(0,0,0,0.3);
+}
+
+/* text */
+.exp-head h3{ font-size:1.05rem; margin-bottom:4px; color:#e7f7f6; }
+.muted{ color:var(--muted); font-size:0.92rem; }
+
+/* role list */
+.role-list{ list-style:none; margin-top:8px; display:flex; flex-direction:column; gap:10px; padding-left:0; }
+.role-list li{ display:flex; justify-content:space-between; align-items:center; padding:10px; border-radius:10px; background: linear-gradient(180deg, rgba(64,224,208,0.02), rgba(255,255,255,0.01)); }
+.role-title{ color:#eef7f6; font-weight:600; }
+.role-date{ color:var(--muted); font-size:0.9rem; }
+
+/* ---------- Achievements (keeps earlier style) ---------- */
+.achievements-section{ margin-top:22px; }
+.achievements-section h2{ text-align:center; color:var(--accent); margin-bottom:18px; }
+.achievements-grid{ display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); }
+.achievement-card{
+  background: rgba(0,255,200,0.03); border-radius:20px; padding:18px; text-align:center; transition: transform .22s, box-shadow .22s;
+  border:1px solid rgba(255,255,255,0.03);
+}
+.achievement-card:hover{ transform: translateY(-8px); box-shadow: 0 14px 30px rgba(0,0,0,0.45); }
+.img-placeholder{ width:100%; height:140px; border-radius:10px; background:linear-gradient(135deg,#11423e,#0e2d33); display:flex; align-items:center; justify-content:center; color:var(--accent); font-weight:700; font-size:1.1rem; margin-bottom:12px; }
+.achievement-card h3{ margin-bottom:8px; color:#fff; }
+.achievement-card p{ color:var(--muted); font-size:0.95rem; }
+
+/* ---------- Footer ---------- */
+.footer{ padding:22px 0; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,0.02); }
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width:780px){
+  .hero-inner{ flex-direction:column; text-align:center; gap:16px; }
+  .hero-right{ justify-content:center; }
+  .avatar{ width:84px; height:84px; font-size:2rem; }
+}
