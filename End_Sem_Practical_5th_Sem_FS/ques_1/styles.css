@@ -1,0 +1,55 @@
+/* Simple responsive navigation styles for Ques 1 */
+:root{
+  --bg:#0f1724;
+  --accent:#0ea5a4;
+  --muted:#94a3b8;
+  --white:#ffffff;
+}
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; color:var(--white); background:linear-gradient(180deg,#071028,#092433);}
+
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem;background:rgba(255,255,255,0.02);backdrop-filter:blur(2px);}
+.brand{font-weight:700;color:var(--accent);font-size:1.15rem}
+
+/* hide native checkbox */
+.nav-toggle{position:absolute;left:-9999px}
+
+.nav-toggle-label{display:none;cursor:pointer;width:40px;height:32px;align-items:center;justify-content:center}
+.nav-toggle-label span{display:block;height:3px;width:26px;background:var(--white);margin:5px 0;border-radius:2px;transition:all .25s}
+
+.site-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+.site-nav a{color:var(--white);text-decoration:none;padding:0.5rem 0.75rem;border-radius:6px;transition:background .15s}
+.site-nav a:hover{background:rgba(255,255,255,0.06)}
+
+/* icons next to link text */
+.site-nav a{display:inline-flex;align-items:center;gap:0.5rem}
+.site-nav a .icon{width:18px;height:18px;display:inline-block;flex:0 0 18px}
+.site-nav a .icon path{fill:currentColor}
+
+.content{padding:1.25rem}
+
+/* Mobile first: collapse nav under 720px */
+@media (max-width:720px){
+  .nav-toggle-label{display:flex}
+
+  .site-nav{position:absolute;left:0;right:0;top:56px;background:linear-gradient(180deg,rgba(3,7,18,0.95),rgba(2,6,16,0.98));padding:0.5rem;border-top:1px solid rgba(255,255,255,0.03);transform-origin:top;}
+
+  .site-nav ul{flex-direction:column;gap:0.25rem}
+  .site-nav a{display:block;padding:0.75rem 1rem}
+
+  /* hide menu by default */
+  .site-nav{max-height:0;overflow:hidden;opacity:0;transition:max-height .28s ease,opacity .28s ease;padding-top:0;padding-bottom:0}
+
+  /* when checkbox is checked, show menu */
+  .nav-toggle:checked + .nav-toggle-label + .site-nav{max-height:400px;opacity:1;padding-top:0.5rem;padding-bottom:0.5rem}
+
+  /* animate hamburger into X when open */
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(2){opacity:0}
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+}
+
+/* Desktop spacing tweak */
+@media (min-width:721px){
+  .site-header{padding:1rem 2rem}
+}
